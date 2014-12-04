@@ -26,7 +26,7 @@ times = np.recfromtxt("time.dat")
 sim_times = np.linspace(times[0], times[-1], 2000)
 
 # loop over the peaks
-for peak, params in fits.iteritems():
+for peak, params in fits.items():
 
     print "Plotting:", peak
     exp_traj = trajs[peak]

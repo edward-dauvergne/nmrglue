@@ -1940,7 +1940,7 @@ def write_procpar(filename, dic, overwrite=False):
     # open the file for writing
     f = fileiobase.open_towrite(filename, overwrite=overwrite, mode='w')
 
-    for key in dic.keys():  # loop over the parameters
+    for key in list(dic.keys()):  # loop over the parameters
 
         d = dic[key]
         # print(out the first line)

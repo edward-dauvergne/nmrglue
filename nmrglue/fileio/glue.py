@@ -130,7 +130,7 @@ def get_dic(f, dataset="spectrum"):
 
     dic = {}
     # loop over the attributes
-    for key, value in dset.attrs.items():
+    for key, value in list(dset.attrs.items()):
 
         if "_" in key:
             # we have an axis key
@@ -153,12 +153,12 @@ def put_dic(f, dic, dataset="spectrum"):
     # select the data set
     dset = f[dataset]
 
-    for key, value in dic.items():
+    for key, value in list(dic.items()):
 
         # axis dictionaries
         if isinstance(key, int) and isinstance(value, dict):
             axis = key
-            for axiskey, axisvalue in value.items():
+            for axiskey, axisvalue in list(value.items()):
                 fullkey = str(axis) + "_" + axiskey
                 dset.attrs[fullkey] = axisvalue
 

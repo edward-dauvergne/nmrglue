@@ -16,10 +16,10 @@ from setup import DATA_DIR
 # subroutines
 def dic_similar(dic1, dic2):
     """ Compared two Bruker parameter dictionaries"""
-    if dic1.keys() != dic2.keys():
+    if list(dic1.keys()) != list(dic2.keys()):
         print("Not same keys!")
-    assert dic1.keys() == dic2.keys()
-    for key in dic1.keys():
+    assert list(dic1.keys()) == list(dic2.keys())
+    for key in list(dic1.keys()):
         if dic1[key] != dic2[key]:
             print(key, dic1[key], dic2[key])
         assert dic1[key] == dic2[key]

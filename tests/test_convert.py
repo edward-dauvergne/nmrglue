@@ -47,8 +47,8 @@ def check_dic(dic1, dic2, exclude=None, v=False):
     """ Compare two parameter dictionaries """
     if exclude is None:
         exclude = []
-    e1 = [k for k in dic1.keys() if k not in dic2.keys() and k not in exclude]
-    e2 = [k for k in dic2.keys() if k not in dic2.keys() and k not in exclude]
+    e1 = [k for k in list(dic1.keys()) if k not in list(dic2.keys()) and k not in exclude]
+    e2 = [k for k in list(dic2.keys()) if k not in list(dic2.keys()) and k not in exclude]
 
     if v:
         print(e1)
@@ -58,13 +58,13 @@ def check_dic(dic1, dic2, exclude=None, v=False):
     assert len(e2) == 0
 
     if v:
-        for k in dic1.keys():
+        for k in list(dic1.keys()):
             if k in exclude:
                 continue
             if dic1[k] != dic2[k]:
                 print(k, dic1[k], dic2[k])
 
-    for k in dic1.keys():
+    for k in list(dic1.keys()):
         if k in exclude:
             continue
         assert dic1[k] == dic2[k]
@@ -74,8 +74,8 @@ def check_pdic(dic1, dic2, exclude=None, v=False):
     """ Compare two NMRPipe parameter dictionaries """
     if exclude is None:
         exclude = []
-    e1 = [k for k in dic1.keys() if k not in dic2.keys() and k not in exclude]
-    e2 = [k for k in dic2.keys() if k not in dic2.keys() and k not in exclude]
+    e1 = [k for k in list(dic1.keys()) if k not in list(dic2.keys()) and k not in exclude]
+    e2 = [k for k in list(dic2.keys()) if k not in list(dic2.keys()) and k not in exclude]
 
     if v:
         print(e1)
@@ -85,7 +85,7 @@ def check_pdic(dic1, dic2, exclude=None, v=False):
     assert len(e2) == 0
 
     if v:
-        for k in dic1.keys():
+        for k in list(dic1.keys()):
             if k in exclude:
                 continue
             if isinstance(dic1[k], _string_type) or isinstance(dic1[k], list):
@@ -94,7 +94,7 @@ def check_pdic(dic1, dic2, exclude=None, v=False):
             elif abs(dic1[k] - dic2[k]) >= 0.002:
                 print(k, dic1[k], dic2[k], dic1[k] - dic2[k])
 
-    for k in dic1.keys():
+    for k in list(dic1.keys()):
         if k in exclude:
             continue
         if isinstance(dic1[k], _string_type) or isinstance(dic1[k], list):

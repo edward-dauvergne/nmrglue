@@ -47,7 +47,7 @@ f.close()
 # output the fits nicely to file
 f = open("fits.txt", 'w')
 f.write("#Peak\tA\t\tR2\t\tier\n")
-for k, v in fits.iteritems():
+for k, v in fits.items():
     f.write(k + "\t" + str(v[0][0]) + "\t" + str(v[0][1]) + "\t" + str(v[1]) + 
             "\n")
 f.close()

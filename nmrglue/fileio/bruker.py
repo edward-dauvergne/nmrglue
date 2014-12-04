@@ -624,7 +624,7 @@ def guess_shape(dic):
     # replace td0,td1,td2,td3 in loop list
     rep = {'td0': td0, 'td1': td1, 'td2': td2, 'td3': td3}
     for i, v in enumerate(loop):
-        if v in rep.keys():
+        if v in list(rep.keys()):
             loop[i] = rep[v]
 
     # if the loop variables contains strings, return current shape
@@ -1656,7 +1656,7 @@ def write_jcamp(dic, filename, overwrite=False):
         f.write(line)
         f.write("\n")
 
-    keys = sorted([i for i in d.keys()])
+    keys = sorted([i for i in list(d.keys())])
 
     # write out each key,value pair
     for key in keys:
@@ -1917,7 +1917,7 @@ def write_pprog(filename, dic, overwrite=False):
     f.write("; Minimal Bruker pulseprogram created by write_pprog\n")
 
     # write our the variables
-    for k, v in dic["var"].items():
+    for k, v in list(dic["var"].items()):
         f.write("\"" + k + "=" + v + "\"\n")
 
     # write out each loop

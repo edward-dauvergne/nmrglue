@@ -1518,7 +1518,7 @@ def fdata2dic(fdata):
     dic = dict()
 
     # Populate the dictionary with FDATA which contains numbers
-    for key in fdata_dic.keys():
+    for key in list(fdata_dic.keys()):
         dic[key] = float(fdata[int(fdata_dic[key])])
 
     # make the FDDIMORDER
@@ -1549,7 +1549,7 @@ def dic2fdata(dic):
     fdata = np.zeros(512, 'float32')
 
     # Populate the array with the simple numbers
-    for key in fdata_nums.keys():
+    for key in list(fdata_nums.keys()):
         fdata[int(fdata_dic[key])] = float(dic[key])
 
     # Check that FDDIMORDER didn't overwrite FDDIMORDER1
