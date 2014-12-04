@@ -604,8 +604,8 @@ class sparky_2d(fileiobase.data_nd):
         f = open(self.filename, 'rb')
 
         #print(sY,sX)
-        gY = range(self.lenY)[sY]  # list of values to take in Y
-        gX = range(self.lenX)[sX]  # list of values to take in X
+        gY = list(range(self.lenY))[sY]  # list of values to take in Y
+        gX = list(range(self.lenX))[sX]  # list of values to take in X
 
         # tiles to get in each dim to read
         gtY = set([np.floor(i / self.lentY) for i in gY])  # Y tile to read
@@ -736,9 +736,9 @@ class sparky_3d(fileiobase.data_nd):
         sZ, sY, sX = slices
         f = open(self.filename, 'rb')
 
-        gZ = range(self.lenZ)[sZ]  # list of values to take in Z
-        gY = range(self.lenY)[sY]  # list of values to take in Y
-        gX = range(self.lenX)[sX]  # list of values to take in X
+        gZ = list(range(self.lenZ))[sZ]  # list of values to take in Z
+        gY = list(range(self.lenY))[sY]  # list of values to take in Y
+        gX = list(range(self.lenX))[sX]  # list of values to take in X
 
         # tiles to get in each dim to read
         gtZ = set([np.floor(float(i) / self.lentZ) for i in gZ])  # Z tiles

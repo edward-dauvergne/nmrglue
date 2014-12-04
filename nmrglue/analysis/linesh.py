@@ -658,7 +658,7 @@ def make_slist(l, t_sizes):
 def split_list(l, N):
     """ Split list l into N sublists of equal size """
     step = int(len(l) / N)
-    div_points = range(0, len(l) + 1, step)
+    div_points = list(range(0, len(l) + 1, step))
     return [l[div_points[i]:div_points[i + 1]] for i in range(N)]
 
 

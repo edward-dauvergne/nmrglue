@@ -56,8 +56,8 @@ def find_all_connected(data, thres, find_segs=False, diag=False):
     labels, num_features = label_connected(data, thres, structure)
 
     # determine locations of segment maxima
-    locations = ndimage.maximum_position(data, labels, range(1, num_features +
-                                                             1))
+    locations = ndimage.maximum_position(data, labels, list(range(1, num_features +
+                                                             1)))
     # find segment slices if requested and return
     if find_segs is True:
         seg_slices = ndimage.find_objects(labels)
@@ -113,8 +113,8 @@ def find_all_nconnected(data, thres, find_segs=False, diag=False):
     labels, num_features = label_nconnected(data, thres, structure)
 
     # determine locations of segment maxima
-    locations = ndimage.minimum_position(data, labels, range(1,
-                                         num_features + 1))
+    locations = ndimage.minimum_position(data, labels, list(range(1,
+                                         num_features + 1)))
     # find segment slices if requested and return
     if find_segs is True:
         seg_slices = ndimage.find_objects(labels)
@@ -240,8 +240,8 @@ def find_all_downward(data, thres, find_segs=False, diag=False):
     labels, num_features = label_downward(data, thres, structure)
 
     # determine locations of segment maxima
-    locations = ndimage.maximum_position(data, labels, range(1,
-                                         num_features + 1))
+    locations = ndimage.maximum_position(data, labels, list(range(1,
+                                         num_features + 1)))
 
     # find segment slices if requested and return
     if find_segs is True:
@@ -361,7 +361,7 @@ def find_all_upward(data, thres, find_segs=False, diag=False):
 
     # determine locations of segment maxima
     locations = ndimage.minimum_position(data, labels,
-                                         range(1, num_features + 1))
+                                         list(range(1, num_features + 1)))
     # find segment slices if requested and return
     if find_segs is True:
         seg_slices = ndimage.find_objects(labels)

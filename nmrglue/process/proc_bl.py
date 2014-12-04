@@ -124,7 +124,7 @@ def cbf_explicit(data, calc=slice(None), apply=slice(None)):
 
     """
     # calculate correction
-    n = len(range(data.shape[-1])[calc])
+    n = len(list(range(data.shape[-1]))[calc])
     corr = data[..., calc].sum(axis=-1) / n
 
     # apply correction

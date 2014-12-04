@@ -2036,7 +2036,7 @@ class fid_nd(fileiobase.data_nd):
 
         # check order
         if order is None:
-            order = range(len(fshape))
+            order = list(range(len(fshape)))
 
         # finalize
         self.fdtype = find_dtype(dic)
@@ -2073,7 +2073,7 @@ class fid_nd(fileiobase.data_nd):
 
         # find the output size and make a in/out nd interator
         osize, nd_iter = fileiobase.size_and_ndtofrom_iter(ffshape, fslice)
-        osize.append(len(range(lfshape)[lslice]))
+        osize.append(len(list(range(lfshape))[lslice]))
 
         # create an empty array to store the selected slices
         out = np.empty(tuple(osize), dtype=self.dtype)

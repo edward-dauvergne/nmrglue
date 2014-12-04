@@ -153,7 +153,7 @@ def create_dic(udic, dim_order=None):
     dic['format'] = np.dtype('float32').str
 
     if dim_order is None:
-        dim_order = range(ndim)  # default to 0, 1, 2, ...
+        dim_order = list(range(ndim))  # default to 0, 1, 2, ...
 
     # set various parameters from the universal dictionary
     dic['dom'] = [['F', 'T'][udic[i]['time']] for i in dim_order]
@@ -568,7 +568,7 @@ class rnmrtk_nd(fileiobase.data_nd):
         """
         # check and set order
         if order is None:
-            order = range(len(fshape))
+            order = list(range(len(fshape)))
         self.order = order
 
         # set additional parameters
@@ -609,7 +609,7 @@ class rnmrtk_nd(fileiobase.data_nd):
 
         # find the output size and make an to/from nd_iterator
         osize, nd_iter = fileiobase.size_and_ndtofrom_iter(ffshape, fslice)
-        osize.append(len(range(lfshape)[lslice]))
+        osize.append(len(list(range(lfshape))[lslice]))
 
         # create an empty array to store the selected slices
         out = np.empty(tuple(osize), dtype=self.dtype)

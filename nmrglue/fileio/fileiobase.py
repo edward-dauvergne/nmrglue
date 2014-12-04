@@ -380,25 +380,25 @@ def open_towrite(filename, overwrite=False, mode='wb'):
 
 
 def ndfrom_iter(shape, slices):
-    ch = [range(lenx)[sX] for lenx, sX in zip(shape, slices)]
+    ch = [list(range(lenx))[sX] for lenx, sX in zip(shape, slices)]
     return itertools.product(*ch)
 
 
 def ndto_iter(shape, slices):
-    ich = [range(len(range(lenx)[sX])) for lenx, sX in zip(shape, slices)]
+    ich = [list(range(len(list(range(lenx))[sX]))) for lenx, sX in zip(shape, slices)]
     return itertools.product(*ich)
 
 
 def ndtofrom_iter(shape, slices):
-    ch = [range(lenx)[sX] for lenx, sX in zip(shape, slices)]
-    ich = [range(len(i)) for i in ch]
+    ch = [list(range(lenx))[sX] for lenx, sX in zip(shape, slices)]
+    ich = [list(range(len(i))) for i in ch]
     return zip(itertools.product(*ich), itertools.product(*ch))
 
 
 def size_and_ndtofrom_iter(shape, slices):
-    ch = [range(lenx)[sX] for lenx, sX in zip(shape, slices)]
+    ch = [list(range(lenx))[sX] for lenx, sX in zip(shape, slices)]
     s = [len(i) for i in ch]
-    ich = [range(i) for i in s]
+    ich = [list(range(i)) for i in s]
     return s, zip(itertools.product(*ich), itertools.product(*ch))
 
 
@@ -674,7 +674,7 @@ class data_nd(object):
 
         """
         if axes == ():    # default is to switch order of axes
-            axes = range(self.ndim)[::-1]
+            axes = list(range(self.ndim))[::-1]
 
         if len(axes) == 1:    # if a single tuple is given unpack
             axes = axes[0]

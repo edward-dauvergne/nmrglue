@@ -11,7 +11,7 @@ spectra_list = np.recfromtxt("spectra.in")
 # prepare the trajs records array
 num_spec = spectra_list.size
 num_peaks = peak_list.size
-elist = [np.empty(num_spec, dtype="float") for i in xrange(num_peaks)]
+elist = [np.empty(num_spec, dtype="float") for i in range(num_peaks)]
 trajs = np.rec.array(elist, names=list(peak_list.f0)) 
 
 # loop over the spectra

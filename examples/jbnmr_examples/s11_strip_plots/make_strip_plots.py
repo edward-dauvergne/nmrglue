@@ -65,7 +65,7 @@ z_plane_s3 = table['CO_PPM'][1:]  # strip plane in ppm, spectrum 3
 
 
 fig = plt.figure()
-for i in xrange(7):
+for i in range(7):
 
     ### spectral 1, CONCA
     # find limits in units of points

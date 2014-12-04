@@ -1723,8 +1723,8 @@ class pipe_2d(fileiobase.data_nd):
 
         # determine which objects should be selected
         lenY, lenX = self.fshape
-        xch = range(lenX)[sX]
-        ych = range(lenY)[sY]
+        xch = list(range(lenX))[sX]
+        ych = list(range(lenY))[sY]
 
         # create an empty array to store the selected slice
         out = np.empty((len(ych), len(xch)), dtype=self.dtype)
@@ -1828,9 +1828,9 @@ class pipe_3d(fileiobase.data_nd):
         sZ, sY, sX = slices
         # determine which objects should be selected
         lenZ, lenY, lenX = self.fshape
-        xch = range(lenX)[sX]
-        ych = range(lenY)[sY]
-        zch = range(lenZ)[sZ]
+        xch = list(range(lenX))[sX]
+        ych = list(range(lenY))[sY]
+        zch = list(range(lenZ))[sZ]
 
         # create an empty array to store the selected slice
         out = np.empty((len(zch), len(ych), len(xch)), dtype=self.dtype)
@@ -1914,9 +1914,9 @@ class pipestream_3d(fileiobase.data_nd):
 
         # determine which objects should be selected
         lenZ, lenY, lenX = self.fshape
-        xch = range(lenX)[sX]
-        ych = range(lenY)[sY]
-        zch = range(lenZ)[sZ]
+        xch = list(range(lenX))[sX]
+        ych = list(range(lenY))[sY]
+        zch = list(range(lenZ))[sZ]
 
         # create an empty array to store the selected slice
         out = np.empty((len(zch), len(ych), len(xch)), dtype=self.dtype)
@@ -2039,10 +2039,10 @@ class pipe_4d(fileiobase.data_nd):
         sA, sZ, sY, sX = slices
         # determine which objects should be selected
         lenA, lenZ, lenY, lenX = self.fshape
-        xch = range(lenX)[sX]
-        ych = range(lenY)[sY]
-        zch = range(lenZ)[sZ]
-        ach = range(lenA)[sA]
+        xch = list(range(lenX))[sX]
+        ych = list(range(lenY))[sY]
+        zch = list(range(lenZ))[sZ]
+        ach = list(range(lenA))[sA]
 
         # create an empty array to store the selected slice
         out = np.empty((len(ach), len(zch), len(ych), len(xch)),
@@ -2134,10 +2134,10 @@ class pipestream_4d(fileiobase.data_nd):
 
         # determine which objects should be selected
         lenA, lenZ, lenY, lenX = self.fshape
-        xch = range(lenX)[sX]
-        ych = range(lenY)[sY]
-        zch = range(lenZ)[sZ]
-        ach = range(lenA)[sA]
+        xch = list(range(lenX))[sX]
+        ych = list(range(lenY))[sY]
+        zch = list(range(lenZ))[sZ]
+        ach = list(range(lenA))[sA]
 
         # create an empty array to store the selected slice
         out = np.empty((len(ach), len(zch), len(ych), len(xch)),
