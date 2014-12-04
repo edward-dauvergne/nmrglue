@@ -156,7 +156,7 @@ def put_dic(f, dic, dataset="spectrum"):
     for key, value in dic.items():
 
         # axis dictionaries
-        if type(key) == int and type(value) == dict:
+        if isinstance(key, int) and isinstance(value, dict):
             axis = key
             for axiskey, axisvalue in value.items():
                 fullkey = str(axis) + "_" + axiskey

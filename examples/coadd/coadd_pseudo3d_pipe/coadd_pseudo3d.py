@@ -6,8 +6,7 @@ import glob
 import os.path
 
 # create a list of directories to coadd
-dlist = glob.glob("run*.dir")
-dlist.sort()
+dlist = sorted(glob.glob("run*.dir"))
 
 # create a list of 2D files in the first directory
 flist = glob.glob(os.path.join(dlist[0], "*.fid", "test.fid"))

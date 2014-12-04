@@ -5,8 +5,7 @@ import numpy as np
 import glob
 
 # create a list of files to coadd
-flist = glob.glob("test*.fid")
-flist.sort()
+flist = sorted(glob.glob("test*.fid"))
 
 # initilize the new data
 dic, data = ng.pipe.read(flist[0])

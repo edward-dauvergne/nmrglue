@@ -98,7 +98,7 @@ def isitemsimilar(v1, v2, verb=False, dtol=DTOL):
     r = True
 
     # type checking
-    if type(v1) != type(v2):
+    if not isinstance(v1, type(v2)):
         r = False
         if verb:
             print("Item has different type", type(v1), type(v2))
